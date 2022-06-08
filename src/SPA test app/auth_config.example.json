@@ -1,0 +1,4 @@
+{
+  "domain": "{YOUR_AUTH0_DOMAIN}",
+  "clientId": "{YOUR_AUTH0_CLIENTID}"
+}
