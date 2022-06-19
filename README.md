@@ -4,5 +4,11 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/kate-orlova/auth0-in-sitecore.svg?style=flat)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/kate-orlova/auth0-in-sitecore)
 
-# auth0-in-sitecore
-SSO with Auth0 in Sitecore
+# Auth0 in Sitecore
+SSO with Auth0 in Sitecore.
+
+## SPA test app
+The “SPA test app” is a Single Page JavaScript Application for testing purposes, it is based on [this code sample](https://github.com/auth0-samples/auth0-javascript-samples/tree/master/01-Login) from Auth0’s GitHub repository.
+
+## Sitecore
+TBC
