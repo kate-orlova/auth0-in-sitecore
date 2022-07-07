@@ -34,6 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="App_Config\Include\Foundation\Auth0InSitecore\Foundation.Auth0InSitecore.config" />
+    <None Include="App_Config\Include\Foundation\Auth0InSitecore\Sitecore.Owin.Authentication.Enabler.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
