@@ -23,4 +23,21 @@ The “SPA test app” is a Single Page JavaScript Application for testing purpo
 4. View the app via http://localhost:3002; if required a port can be set to any with minimal changes in `\bin\www`, `Dockerfile`, `exec.ps1` and `exec.sh` files
 
 ## Sitecore
-TBC
+Auth0InSitecore solution implements the integration between Sitecore and Auth0.
+
+### Configuration
+The module ships the following config files defined in `..\src\Sitecore\Foundation\Auth0InSitecore\App_Config\Include\Foundation\Auth0InSitecore` folder:
+ - Foundation.Auth0InSitecore.config
+ - Foundation.Identity.config
+ - Sitecore.Owin.Authentication.Enabler.config
+ 
+ ### Pipelines
+ TBC
+ 
+ ### Components
+ TBC
+ 
+ ### How to install
+ 1. Add the Auth0InSitecore project to your Visual Studio solution to your Sitecore Foundation layer;
+ 
+ TBC
