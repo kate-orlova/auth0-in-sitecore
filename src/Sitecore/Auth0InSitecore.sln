@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{F17F0946-24B0-4067-920A-7F051BCC41A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth0InSitecore", "Foundation\Auth0InSitecore\Auth0InSitecore.csproj", "{7BF08648-9C23-4CDC-BC7F-D2C021B4EF57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BF08648-9C23-4CDC-BC7F-D2C021B4EF57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BF08648-9C23-4CDC-BC7F-D2C021B4EF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BF08648-9C23-4CDC-BC7F-D2C021B4EF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BF08648-9C23-4CDC-BC7F-D2C021B4EF57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BF08648-9C23-4CDC-BC7F-D2C021B4EF57} = {F17F0946-24B0-4067-920A-7F051BCC41A4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DEF1382-E286-4570-BDDE-2021CB5681DE}
+	EndGlobalSection
+EndGlobal
