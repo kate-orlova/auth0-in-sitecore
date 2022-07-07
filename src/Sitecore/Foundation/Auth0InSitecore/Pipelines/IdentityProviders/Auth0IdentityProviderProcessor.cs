@@ -28,9 +28,9 @@ namespace Auth0InSitecore.Pipelines.IdentityProviders
 
         public Auth0IdentityProviderProcessor(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration) : base(federatedAuthenticationConfiguration)
         {
-            _auth0Domain = Settings.GetSetting("Foundation.Identity.Auth0Domain");
-            _auth0ClientId = Settings.GetSetting("Foundation.Identity.Auth0ClientId");
-            _auth0ClientSecret = Settings.GetSetting("Foundation.Identity.Auth0ClientSecret");
+            _auth0Domain = Settings.GetSetting("Foundation.Auth0InSitecore.Auth0Domain");
+            _auth0ClientId = Settings.GetSetting("Foundation.Auth0InSitecore.Auth0ClientId");
+            _auth0ClientSecret = Settings.GetSetting("Foundation.Auth0InSitecore.Auth0ClientSecret");
             _auth0RedirectUri = Settings.GetSetting("Foundation.Identity.Auth0RedirectUri");
             _auth0PostLogoutRedirectUri = Settings.GetSetting("Foundation.Identity.Auth0PostLogoutRedirectUri");
             _auth0Audience = Settings.GetSetting("Foundation.Identity.Auth0Audience");
