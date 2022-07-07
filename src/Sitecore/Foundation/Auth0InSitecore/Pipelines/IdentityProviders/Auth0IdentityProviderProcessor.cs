@@ -33,7 +33,7 @@ namespace Auth0InSitecore.Pipelines.IdentityProviders
             _auth0ClientSecret = Settings.GetSetting("Foundation.Auth0InSitecore.Auth0ClientSecret");
             _auth0RedirectUri = Settings.GetSetting("Foundation.Auth0InSitecore.Auth0RedirectUri");
             _auth0PostLogoutRedirectUri = Settings.GetSetting("Foundation.Auth0InSitecore.Auth0PostLogoutRedirectUri");
-            _auth0Audience = Settings.GetSetting("Foundation.Identity.Auth0Audience");
+            _auth0Audience = Settings.GetSetting("Foundation.Auth0InSitecore.Auth0Audience");
         }
 
         /// <summary>
