@@ -41,3 +41,7 @@ The module ships the following config files defined in `..\src\Sitecore\Foundati
  1. Add the Auth0InSitecore project to your Visual Studio solution to your Sitecore Foundation layer;
  
  TBC
+ 
+ # License
+The Auth0 in Sitecore module is released under the MIT license, this means that you can modify and use it how you want even for commercial use. Please give it a star if you like it and your experience was positive.
+
