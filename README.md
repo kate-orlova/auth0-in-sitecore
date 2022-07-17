@@ -6,7 +6,10 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/kate-orlova/auth0-in-sitecore)
 
 # Auth0 in Sitecore
-SSO with Auth0 in Sitecore.
+Today almost every website requires some form of authentication to access its content and features. With the number of web portals and services rising exponentially nowadays, a Single Sign-On (SSO) authentication is now required more than ever.
+
+The Auth0 in Sitecore module implements an identity provider allowing to authenticate visitors of a Sitecore website through [Auth0](https://auth0.com/docs/get-started/auth0-overview) identity management platform.
+
 
 ## SPA test app
 The “SPA test app” is a Single Page JavaScript Application for testing purposes, it is based on [this code sample](https://github.com/auth0-samples/auth0-javascript-samples/tree/master/01-Login) from Auth0’s GitHub repository.
