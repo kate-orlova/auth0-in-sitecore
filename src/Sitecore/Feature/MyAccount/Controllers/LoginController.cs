@@ -1,12 +1,21 @@
-﻿using System.Web.Mvc;
+﻿using Sitecore.Abstractions;
+using Sitecore.Configuration;
+using System.Web.Mvc;
+using System.Linq;
 
 namespace MyAccount.Controllers
 {
     public class LoginController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Login()
         {
-            return View();
-        }
+            var corePipelineManager = DependencyResolver.Current.GetService<BaseCorePipelineManager>();
+
+            var args = new Sitecore.Pipelines.GetSignInUrlInfo.GetSignInUrlInfoArgs(Sitecore.Context.Site.Name, Settings.GetSetting("Foundation.Auth0InSitecore.Auth0RedirectUri"));
+            Sitecore.Pipelines.GetSignInUrlInfo.GetSignInUrlInfoPipeline.Run(corePipelineManager, args);
+            ViewBag.SignInUrl = args.Result.FirstOrDefault()?.Href;
+
+			return View();
+		}
     }
 }
