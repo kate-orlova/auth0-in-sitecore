@@ -1,0 +1,15 @@
+﻿@using Sitecore
+@using Sitecore.Mvc
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
+
+<div>
+    @{
+        using (Html.BeginForm(null, null, FormMethod.Post, new { action = ViewBag.SignInUrl, id = "loginForm" }))
+        {
+            <button type="submit">
+                Login
+            </button>
+        }
+    }
+</div>
