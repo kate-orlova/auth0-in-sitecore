@@ -16,7 +16,18 @@ namespace MyAccount.Controllers
             Sitecore.Pipelines.GetSignInUrlInfo.GetSignInUrlInfoPipeline.Run(corePipelineManager, args);
             ViewBag.SignInUrl = args.Result.FirstOrDefault()?.Href;
 
-			return View("~/Views/Feature/MyAccount/Login.cshtml");
+            return View("~/Views/Feature/MyAccount/Login.cshtml");
 		}
+
+        public ActionResult Logout()
+        {
+            if (Sitecore.Context.User.IsAuthenticated)
+            {
+                Session.Abandon();
+                Sitecore.Security.Authentication.AuthenticationManager.Logout();
+            }
+
+            return Redirect(Settings.GetSetting("Foundation.Auth0InSitecore.Auth0PostLogoutRedirectUri"));
+        }
     }
 }
