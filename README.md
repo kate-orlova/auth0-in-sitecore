@@ -35,11 +35,12 @@ The module ships the following config files defined in `..\src\Sitecore\Foundati
  - Foundation.Identity.config
  - Sitecore.Owin.Authentication.Enabler.config
  
- ### Pipelines
+### Pipelines
  TBC
  
- ### Components
- TBC
+### Components
+#### Login
+`..\src\Sitecore\Feature\MyAccount\Controllers\LoginController.cs` controller and `..\src\Sitecore\Feature\MyAccount\Views\Feature\MyAccount\Login.cshtml` view implement the login functionality. Typically a login button is expected to stand out in a page layout, therefore, the Login component can be easily placed in the page header or footer.
  
  ### How to install
  1. Add the Auth0InSitecore project to your Visual Studio solution to your Sitecore Foundation layer;
