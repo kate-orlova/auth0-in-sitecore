@@ -27,7 +27,7 @@ The “SPA test app” is a Single Page JavaScript Application for testing purpo
 4. View the app via http://localhost:3002; if required a port can be set to any with minimal changes in `\bin\www`, `Dockerfile`, `exec.ps1` and `exec.sh` files
 
 ## Sitecore
-Auth0InSitecore solution implements the integration between Sitecore and Auth0.
+Auth0InSitecore solution implements the integration between a Sitecore website and Auth0 using [Auth0 Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login).
 
 ### Configuration
 The module ships the following config files defined in `..\src\Sitecore\Foundation\Auth0InSitecore\App_Config\Include\Foundation\Auth0InSitecore` folder:
@@ -41,6 +41,11 @@ The module ships the following config files defined in `..\src\Sitecore\Foundati
 ### Components
 #### Login
 `..\src\Sitecore\Feature\MyAccount\Controllers\LoginController.cs` controller and `..\src\Sitecore\Feature\MyAccount\Views\Feature\MyAccount\Login.cshtml` view implement the login functionality. Typically a login button is expected to stand out in a page layout, therefore, the Login component can be easily placed in the page header or footer.
+
+### Sitecore Packages
+Sitecore packages contain:
+1. **Renderings**
+   - My Account -> Login controller rendering
  
  ### How to install
  1. Add the Auth0InSitecore project to your Visual Studio solution to your Sitecore Foundation layer;
