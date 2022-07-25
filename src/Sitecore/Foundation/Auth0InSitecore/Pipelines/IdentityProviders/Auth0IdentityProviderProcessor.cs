@@ -1,9 +1,10 @@
 ﻿using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using Microsoft.Owin.Infrastructure;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
 using Owin;
-using Sitecore.Configuration;
+using Sitecore.Abstractions;
 using Sitecore.Diagnostics;
 using Sitecore.Owin.Authentication.Configuration;
 using Sitecore.Owin.Authentication.Extensions;
@@ -11,6 +12,7 @@ using Sitecore.Owin.Authentication.Pipelines.IdentityProviders;
 using Sitecore.Owin.Authentication.Services;
 using System;
 using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
 
 
 namespace Auth0InSitecore.Pipelines.IdentityProviders
@@ -26,7 +28,10 @@ namespace Auth0InSitecore.Pipelines.IdentityProviders
 
         private IdentityProvider IdentityProvider => GetIdentityProvider();
 
-        public Auth0IdentityProviderProcessor(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration) : base(federatedAuthenticationConfiguration)
+        public Auth0IdentityProviderProcessor(
+            FederatedAuthenticationConfiguration federatedAuthenticationConfiguration, ICookieManager cookieManager, BaseSettings settings)
+            : base(federatedAuthenticationConfiguration, cookieManager, settings)
+
         {
             _auth0Domain = Settings.GetSetting("Foundation.Auth0InSitecore.Auth0Domain");
             _auth0ClientId = Settings.GetSetting("Foundation.Auth0InSitecore.Auth0ClientId");
@@ -57,7 +62,8 @@ namespace Auth0InSitecore.Pipelines.IdentityProviders
                 RedirectUri = _auth0RedirectUri,
                 PostLogoutRedirectUri = _auth0PostLogoutRedirectUri,
                 ClientSecret = _auth0ClientSecret,
-                TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters
+
+                TokenValidationParameters = new TokenValidationParameters
                 {
                     NameClaimType = "name"
                 },
@@ -67,11 +73,11 @@ namespace Auth0InSitecore.Pipelines.IdentityProviders
                 {
                     RedirectToIdentityProvider = notification =>
                     {
-                        if (notification.ProtocolMessage.RequestType == Microsoft.IdentityModel.Protocols.OpenIdConnectRequestType.AuthenticationRequest)
+                        if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Authentication)
                         {
                             notification.ProtocolMessage.SetParameter("audience", _auth0Audience);
                         }
-                        else if (notification.ProtocolMessage.RequestType == Microsoft.IdentityModel.Protocols.OpenIdConnectRequestType.LogoutRequest)
+                        else if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Logout)
                         {
                             var logoutUri = $"https://{_auth0Domain}/v2/logout?client_id={_auth0ClientId}";
 
