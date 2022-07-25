@@ -49,6 +49,10 @@ Sitecore packages contain:
  
  ### How to install
  1. Add the Auth0InSitecore project to your Visual Studio solution to your Sitecore Foundation layer;
+ 2. Config
+ 3. Implement your project specific Login, Logout and other My Account related components, see some examples in the attached _Renderings_ Sitecore package;
+ 4. Add your Login/Logout components to the concernated pages, for ease you can place them in the Page Layout / Sub Layout;
+ 5. TBC
  
  TBC
  # Contribution
