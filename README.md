@@ -33,6 +33,11 @@ Auth0InSitecore solution performs the integration between a Sitecore website and
 1. **Foundation -> Auth0InSitecore** project implements a custom Identity Provider to support the Sitecore federated authentication with Auth0 and provides some examples of the required config files; 
 2. **Feature -> MyAccount** project demonstrates the execution of a typical authentication feature in Sitecore and gives some examples of My Account components built as Controller Renderings. 
 
+### Auth0 Identity Provider for Sitecore
+Sitecore federated authentication expects an Identity Provider to be configured in a specific way to use [Owin]( https://docs.microsoft.com/en-us/aspnet/core/fundamentals/owin?view=aspnetcore-6.0) middleware to delegate authentication to third-party providers and then get claims back from a third-party provider.
+
+This module comes with a `..\src\Sitecore\Foundation\Auth0InSitecore\Pipelines\IdentityProviders\Auth0IdentityProviderProcessor.cs` class that implements a custom Identity Provider Processor to let visitors of a Sitecore website authenticate through Auth0. Its `ProcessCore()` method establishes an OpenId connection to Auth0 and executes the external authentication via Auth0 identity management.
+
 
 ### Configuration
 The module ships the following config files defined in `..\src\Sitecore\Foundation\Auth0InSitecore\App_Config\Include\Foundation\Auth0InSitecore` folder:
