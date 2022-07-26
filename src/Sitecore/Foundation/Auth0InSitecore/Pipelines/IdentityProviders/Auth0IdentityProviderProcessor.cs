@@ -67,7 +67,7 @@ namespace Auth0InSitecore.Pipelines.IdentityProviders
                 {
                     NameClaimType = "name"
                 },
-                Scope = "read:users",
+                Scope = "openid profile email",
                 ResponseType = OpenIdConnectResponseType.CodeIdTokenToken,
                 Notifications = new OpenIdConnectAuthenticationNotifications
                 {
