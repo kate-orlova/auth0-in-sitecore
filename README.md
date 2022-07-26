@@ -32,7 +32,7 @@ Auth0InSitecore solution implements the integration between a Sitecore website a
 ### Configuration
 The module ships the following config files defined in `..\src\Sitecore\Foundation\Auth0InSitecore\App_Config\Include\Foundation\Auth0InSitecore` folder:
  - Foundation.Auth0InSitecore.config
- - Foundation.Identity.config
+ - `Foundation.Identity.config` declares settings of an Auth0 tenant for an OpenId connection; remember to update each setting as per your Auth0 application setup, see _Step 4_ of the installation guide detailed further down the page;
  - Sitecore.Owin.Authentication.Enabler.config
  
 ### Pipelines
@@ -45,7 +45,7 @@ The module ships the following config files defined in `..\src\Sitecore\Foundati
 ### Sitecore Packages
 Sitecore packages contain:
 1. **Renderings**
-   - _My Account -> Login_ controller rendering
+   - _My Account -> Login_ Controller Rendering
  
  ### How to install
 1. [Sign up](https://auth0.com/signup) for an Auth0 account;
