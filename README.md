@@ -45,16 +45,26 @@ The module ships the following config files defined in `..\src\Sitecore\Foundati
 ### Sitecore Packages
 Sitecore packages contain:
 1. **Renderings**
-   - My Account -> Login controller rendering
+   - _My Account -> Login_ controller rendering
  
  ### How to install
- 1. Add the Auth0InSitecore project to your Visual Studio solution to your Sitecore Foundation layer;
- 2. Config
- 3. Implement your project specific Login, Logout and other My Account related components, see some examples in the attached _Renderings_ Sitecore package;
- 4. Add your Login/Logout components to the concernated pages, for ease you can place them in the Page Layout / Sub Layout;
- 5. TBC
+1. [Sign up](https://auth0.com/signup) for an Auth0 account;
+2. Log in to the _Auth0 Dashboard_ and get your Auth0 tenant ready for SSO integration:
+   - Create a new Auth0 application under the _Applications_ section, then fill the application properties in and specify your Sitecore URIs to be used for login, callback and logout functionality via Auth0;
+   - Enable the _Universal Login Experience_ under the _User Management -> Branding -> Universal Login_ section; note, that this is a global setting shared across all your Auth0 applications configured with the same instance;
+3. Add the _Auth0InSitecore_ project to your Visual Studio solution to your Sitecore Foundation layer;
+4. Copy the config files shipped with this module from the `..\src\Sitecore\Foundation\Auth0InSitecore\App_Config\Include\Foundation\Auth0InSitecore\` folder to an  `..\App_Config\Include\` folder corresponding to your Sitecore website and ensure that all configuration settings are specified correctly:
+   - Refer to your Auth0 application _Domain, Client ID, Client Secret, Application Login URI, Allowed Callback/Logout URLs_ properties under the _Settings_ tab and the back-end API for the audience to set the right values in `Foundation.Identity.config`;
+   - Map properties, claims and roles in line with your specific profile attributes and user roles between Auth0 Users and Sitecore User Profiles in `Foundation.Auth0InSitecore.config`;
+5. Implement your project specific Login, Logout and other My Account related components, see some examples in the attached _Renderings_ Sitecore package; for instance, call `Sitecore.Context.User.IsAuthenticated` method to check whether a user is authenticated or not and `Sitecore.Context.User.Profile.FullName` to get a value of a Name property;
+6.	Add your Login/Logout components to pages that are in the authentication scope, for ease you can place them in the Page Layout or Sub Layout;
+7.	All is ready and now you can try to authenticate in your Sitecore website with Auth0 accounts. Enjoy!
+
+
  
- TBC
+ 
+ 
+ 
  # Contribution
 Hope you found this module useful, your contributions and suggestions will be very much appreciated. Please submit a pull request.
 
