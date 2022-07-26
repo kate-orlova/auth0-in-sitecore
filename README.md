@@ -27,7 +27,12 @@ The “SPA test app” is a Single Page JavaScript Application for testing purpo
 4. View the app via http://localhost:3002; if required a port can be set to any with minimal changes in `\bin\www`, `Dockerfile`, `exec.ps1` and `exec.sh` files
 
 ## Sitecore
-Auth0InSitecore solution implements the integration between a Sitecore website and Auth0 using [Auth0 Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login).
+[Sitecore federated authentication](https://doc.sitecore.com/xp/en/developers/102/sitecore-experience-manager/using-federated-authentication-with-sitecore.html) allows users to log in to a Sitecore-based website through an external provider such as Auth0.
+
+Auth0InSitecore solution performs the integration between a Sitecore website and Auth0 using [Auth0 Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login), and consists of two projects:
+1. **Foundation -> Auth0InSitecore** project implements a custom Identity Provider to support the Sitecore federated authentication with Auth0 and provides some examples of the required config files; 
+2. **Feature -> MyAccount** project demonstrates the execution of a typical authentication feature in Sitecore and gives some examples of My Account components built as Controller Renderings. 
+
 
 ### Configuration
 The module ships the following config files defined in `..\src\Sitecore\Foundation\Auth0InSitecore\App_Config\Include\Foundation\Auth0InSitecore` folder:
@@ -35,8 +40,6 @@ The module ships the following config files defined in `..\src\Sitecore\Foundati
  - `Foundation.Identity.config` declares settings of an Auth0 tenant for an OpenId connection; remember to update each setting as per your Auth0 application setup, see _Step 4_ of the installation guide detailed further down the page;
  - `Sitecore.Owin.Authentication.Enabler.config` enables the federated authentication in Sitecore; note, that the Sitecore federated authentication is expected to be enabled by default;
  
-### Pipelines
- TBC
  
 ### Components
 #### Login
