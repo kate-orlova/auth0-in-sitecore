@@ -41,7 +41,11 @@ This module comes with a `..\src\Sitecore\Foundation\Auth0InSitecore\Pipelines\I
 
 ### Configuration
 The module ships the following config files defined in `..\src\Sitecore\Foundation\Auth0InSitecore\App_Config\Include\Foundation\Auth0InSitecore` folder:
- - Foundation.Auth0InSitecore.config
+ - `Foundation.Auth0InSitecore.config`
+   - Declares an Auth0 Identity Provider Processor and integrates it with the `owin.identityProviders` pipeline;
+   - Assigns Auth0 Identity Provider to relevant sites that will be using it;
+   - Defines some config transformation rules;
+   - Maps properties, claims and roles in line with Auth0 specific profile attributes and user roles, for example, a _“name”_ property from Auth0 profile will be mapped to a _FullName_ attribute in Sitecore User Profile;
  - `Foundation.Identity.config` declares settings of an Auth0 tenant for an OpenId connection; remember to update each setting as per your Auth0 application setup, see _Step 4_ of the installation guide detailed further down the page;
  - `Sitecore.Owin.Authentication.Enabler.config` enables the federated authentication in Sitecore; note, that the Sitecore federated authentication is expected to be enabled by default;
  
