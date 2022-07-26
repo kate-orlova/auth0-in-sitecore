@@ -33,7 +33,7 @@ Auth0InSitecore solution implements the integration between a Sitecore website a
 The module ships the following config files defined in `..\src\Sitecore\Foundation\Auth0InSitecore\App_Config\Include\Foundation\Auth0InSitecore` folder:
  - Foundation.Auth0InSitecore.config
  - `Foundation.Identity.config` declares settings of an Auth0 tenant for an OpenId connection; remember to update each setting as per your Auth0 application setup, see _Step 4_ of the installation guide detailed further down the page;
- - Sitecore.Owin.Authentication.Enabler.config
+ - `Sitecore.Owin.Authentication.Enabler.config` enables the federated authentication in Sitecore; note, that the Sitecore federated authentication is expected to be enabled by default;
  
 ### Pipelines
  TBC
