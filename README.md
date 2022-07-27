@@ -29,7 +29,7 @@ The “SPA test app” is a Single Page JavaScript Application for testing purpo
 ## Sitecore
 [Sitecore federated authentication](https://doc.sitecore.com/xp/en/developers/102/sitecore-experience-manager/using-federated-authentication-with-sitecore.html) allows users to log in to a Sitecore-based website through an external provider such as Auth0.
 
-Auth0InSitecore solution performs the integration between a Sitecore website and Auth0 using [Auth0 Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login), and consists of two projects:
+`Auth0InSitecore` solution performs the integration between a Sitecore website and Auth0 using [Auth0 Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login), and consists of two projects:
 1. **Foundation -> Auth0InSitecore** project implements a custom Identity Provider to support the Sitecore federated authentication with Auth0 and provides some examples of the required config files; 
 2. **Feature -> MyAccount** project demonstrates the execution of a typical authentication feature in Sitecore and gives some examples of My Account components built as Controller Renderings. 
 
@@ -44,7 +44,7 @@ The module ships the following config files defined in `..\src\Sitecore\Foundati
  - `Foundation.Auth0InSitecore.config`
    - Declares an Auth0 Identity Provider Processor and integrates it with the `owin.identityProviders` pipeline;
    - Assigns Auth0 Identity Provider to relevant sites that will be using it;
-   - Defines some config transformation rules;
+   - Defines some claim transformation rules;
    - Maps properties, claims and roles in line with Auth0 specific profile attributes and user roles, for example, a _“name”_ property from Auth0 profile will be mapped to a _FullName_ attribute in Sitecore User Profile;
  - `Foundation.Identity.config` declares settings of an Auth0 tenant for an OpenId connection; remember to update each setting as per your Auth0 application setup, see _Step 4_ of the installation guide detailed further down the page;
  - `Sitecore.Owin.Authentication.Enabler.config` enables the federated authentication in Sitecore; note, that the Sitecore federated authentication is expected to be enabled by default;
@@ -66,11 +66,11 @@ Sitecore packages contain:
    - Enable the _Universal Login Experience_ under the _User Management -> Branding -> Universal Login_ section; note, that this is a global setting shared across all your Auth0 applications configured with the same instance;
 3. Add the _Auth0InSitecore_ project to your Visual Studio solution to your Sitecore Foundation layer;
 4. Copy the config files shipped with this module from the `..\src\Sitecore\Foundation\Auth0InSitecore\App_Config\Include\Foundation\Auth0InSitecore\` folder to an  `..\App_Config\Include\` folder corresponding to your Sitecore website and ensure that all configuration settings are specified correctly:
-   - Refer to your Auth0 application _Domain, Client ID, Client Secret, Application Login URI, Allowed Callback/Logout URLs_ properties under the _Settings_ tab and the back-end API for the audience to set the right values in `Foundation.Identity.config`;
+   - Refer to your Auth0 application _Domain, Client ID, Client Secret, Application Login URI, Allowed Callback/Logout URLs_ properties under the _Settings_ tab and the Auth0 API prefix for the _audience_ param expected by the Auth0 authorisation request to set the right values for config settings declared in `Foundation.Identity.config`;
    - Map properties, claims and roles in line with your specific profile attributes and user roles between Auth0 Users and Sitecore User Profiles in `Foundation.Auth0InSitecore.config`;
-5. Implement your project specific Login, Logout and other My Account related components, see some examples in the attached _Renderings_ Sitecore package; for instance, call `Sitecore.Context.User.IsAuthenticated` method to check whether a user is authenticated or not and `Sitecore.Context.User.Profile.FullName` to get a value of a Name property;
-6.	Add your Login/Logout components to pages that are in the authentication scope, for ease you can place them in the Page Layout or Sub Layout;
-7.	All is ready and now you can try to authenticate in your Sitecore website with Auth0 accounts. Enjoy!
+5. Implement your project specific Login, Logout and other My Account related components, see some examples in the attached _Renderings_ Sitecore package; for instance, call `Sitecore.Context.User.IsAuthenticated` method to check whether a user is authenticated or not and `Sitecore.Context.User.Profile.FullName` to get a value of a _Name_ property;
+6. Add your Login/Logout components to pages that are in the authentication scope, for ease you can place them in the Page Layout;
+7. All is ready and now you can try to authenticate in your Sitecore website with Auth0 accounts. Enjoy!
 
 
  
