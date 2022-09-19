@@ -1,0 +1,12 @@
+﻿<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:env="http://www.sitecore.net/xmlconfig/env/">
+  <sitecore>
+    <settings>
+      <setting name="Foundation.Auth0InSitecore.Auth0Domain" value="dev-sso.eu.auth0.com" />
+      <setting name="Foundation.Auth0InSitecore.Auth0ClientId" value="PiGiUAhn9MYfXwND05X6vaeOFHgfd6fB" />
+      <setting name="Foundation.Auth0InSitecore.Auth0ClientSecret" value="bwRqvXTf3zwMgK4UQoO0che_Cjn6UjEZF-ksBpGfcHAg63GoCSHJO5bLtqrRRVA0" />
+      <setting name="Foundation.Auth0InSitecore.Auth0RedirectUri" value="https://xp0102sc.dev.local/" />
+      <setting name="Foundation.Auth0InSitecore.Auth0PostLogoutRedirectUri" value="https://xp0102sc.dev.local/" />
+      <setting name="Foundation.Auth0InSitecore.Auth0Audience" value="https://dev-sso.eu.auth0.com/api/v2/" />
+    </settings>
+  </sitecore>
+</configuration>
