@@ -68,6 +68,7 @@
     <None Include="packages.config" />
     <Content Include="Views\Feature\MyAccount\Login.cshtml" />
     <Content Include="web.config" />
+    <Content Include="Views\Feature\MyAccount\Logout.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
