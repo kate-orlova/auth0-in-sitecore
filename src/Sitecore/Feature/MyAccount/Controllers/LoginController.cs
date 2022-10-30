@@ -21,6 +21,13 @@ namespace MyAccount.Controllers
 
         public ActionResult Logout()
         {
+            ViewBag.SignOutUrl = Url.Action("LogoutUser");
+
+            return View("~/Views/Feature/MyAccount/Logout.cshtml");
+        }
+
+        public ActionResult LogoutUser()
+        {
             if (Sitecore.Context.User.IsAuthenticated)
             {
                 Session.Abandon();
