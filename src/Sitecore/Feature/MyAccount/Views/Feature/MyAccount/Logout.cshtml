@@ -3,11 +3,14 @@
 
 <div>
     @{
-        using (Html.BeginForm(null, null, FormMethod.Post, new { action = ViewBag.SignOutUrl }))
-        {
-            <button type='submit' style='color: #005552'>
-                Logout
-            </button>
-        }
+        if (Sitecore.Current.User.IsAuthenticated) 
+		{
+			using (Html.BeginForm(null, null, FormMethod.Post, new { action = ViewBag.SignOutUrl }))
+			{
+				<button type='submit' style='color: #005552'>
+					Logout
+				</button>
+			}
+		}
     }
 </div>
