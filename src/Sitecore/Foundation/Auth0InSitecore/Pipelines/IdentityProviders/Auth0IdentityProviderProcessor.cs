@@ -13,6 +13,7 @@ using Sitecore.Owin.Authentication.Services;
 using System;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
+using Sitecore.Web.UI.Sheer;
 
 
 namespace Auth0InSitecore.Pipelines.IdentityProviders
@@ -79,22 +80,16 @@ namespace Auth0InSitecore.Pipelines.IdentityProviders
                         }
                         else if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Logout)
                         {
-                            var logoutUri = $"https://{_auth0Domain}/v2/logout?client_id={_auth0ClientId}";
-
-                            var postLogoutUri = notification.ProtocolMessage.PostLogoutRedirectUri;
-                            if (!string.IsNullOrEmpty(postLogoutUri))
+                            var revokeProperties = notification.OwinContext.Authentication.AuthenticationResponseRevoke?.Properties?.Dictionary;
+                            if (revokeProperties != null && revokeProperties.ContainsKey("nonce"))
                             {
-                                if (postLogoutUri.StartsWith("/"))
-                                {
-                                    // transform to absolute
-                                    var request = notification.Request;
-                                    postLogoutUri = request.Scheme + "://" + request.Host + request.PathBase + postLogoutUri;
-                                }
-                                logoutUri += $"&returnTo={Uri.EscapeDataString(postLogoutUri)}";
-                            }
+                                var uri = new Uri(notification.ProtocolMessage.PostLogoutRedirectUri);
+                                var host = uri.GetComponents(UriComponents.SchemeAndServer, UriFormat.Unescaped);
+                                var path = "/" + uri.GetComponents(UriComponents.Path, UriFormat.Unescaped);
+                                var nonce = revokeProperties["nonce"];
 
-                            notification.Response.Redirect(logoutUri);
-                            notification.HandleResponse();
+                                notification.ProtocolMessage.PostLogoutRedirectUri = $"{host}/identity/postexternallogout?ReturnUrl={path}&nonce={nonce}";
+                            }
                         }
                         return Task.FromResult(0);
                     },
