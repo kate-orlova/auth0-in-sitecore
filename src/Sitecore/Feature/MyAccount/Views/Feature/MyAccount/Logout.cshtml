@@ -3,7 +3,7 @@
 
 <div>
     @{
-        if (Sitecore.Current.User.IsAuthenticated) 
+        if (Sitecore.Context.User.IsAuthenticated) 
 		{
 			using (Html.BeginForm(null, null, FormMethod.Post, new { action = ViewBag.SignOutUrl }))
 			{
