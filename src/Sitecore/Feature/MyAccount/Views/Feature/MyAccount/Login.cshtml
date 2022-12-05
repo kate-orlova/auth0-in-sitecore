@@ -3,8 +3,14 @@
 @using System.Web.Mvc
 @using System.Web.Mvc.Html
 
+@{
+    var user = Sitecore.Context.User;
+    var userRoles = string.Join(", ", @Sitecore.Context.User.Roles.Select(x => x.DisplayName));
+}
+
 <div>
-    @{
+    @if (!user.IsAuthenticated)
+    {
         using (Html.BeginForm(null, null, FormMethod.Post, new { action = ViewBag.SignInUrl, id = "loginForm" }))
         {
             <button type="submit">
@@ -12,4 +18,14 @@
             </button>
         }
     }
+</div>
+
+<div>
+    <p>Is Authenticated: @user.IsAuthenticated</p>
+    <p>LocalName: @user.LocalName</p>
+    <p>Name: @user.Profile.Name</p>
+    <p>FullName: @user.Profile.FullName</p>
+    <p>Domain: @user.GetDomainName()</p>
+    <p>Profile Email: @user.Profile.Email</p>
+    <p>Roles: @userRoles</p>
 </div>
