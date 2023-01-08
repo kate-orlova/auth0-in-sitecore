@@ -9,7 +9,7 @@
 # Auth0 in Sitecore
 Today almost every website requires some form of authentication to access its content and features. With the number of web portals and services rising exponentially nowadays, a Single Sign-On (SSO) authentication is now required more than ever.
 
-The Auth0 in Sitecore module implements an identity provider allowing to authenticate visitors of a Sitecore website through [Auth0](https://auth0.com/docs/get-started/auth0-overview) identity management platform. The proposed solution is compatible with Sitecore versions 9 and 10, the current release is referenced to [Sitecore version 10.2](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/102/Sitecore_Experience_Platform_102.aspx).
+The Auth0 in Sitecore module implements an identity provider allowing to authenticate visitors of a Sitecore website through [Auth0](https://auth0.com/docs/get-started/auth0-overview) identity management platform. The proposed solution is compatible with Sitecore versions 9 and 10, the current release is referenced to [Sitecore version 10.3](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/103/Sitecore_Experience_Platform_103.aspx).
 
 
 ## SPA test app
