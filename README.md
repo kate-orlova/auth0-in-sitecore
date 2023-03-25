@@ -28,7 +28,7 @@ The “SPA test app” is a Single Page JavaScript Application for testing purpo
 4. View the app via http://localhost:3002; if required a port can be set to any with minimal changes in `\bin\www`, `Dockerfile`, `exec.ps1` and `exec.sh` files
 
 ## Sitecore
-[Sitecore federated authentication](https://doc.sitecore.com/xp/en/developers/102/sitecore-experience-manager/using-federated-authentication-with-sitecore.html) allows users to log in to a Sitecore-based website through an external provider such as Auth0.
+[Sitecore federated authentication](https://doc.sitecore.com/xp/en/developers/103/sitecore-experience-manager/using-federated-authentication-with-sitecore.html) allows users to log in to a Sitecore-based website through an external provider such as Auth0.
 
 `Auth0InSitecore` solution performs the integration between a Sitecore website and Auth0 using [Auth0 Universal Login](https://auth0.com/docs/authenticate/login/auth0-universal-login), and consists of two projects:
 1. **Foundation -> Auth0InSitecore** project implements a custom Identity Provider to support the Sitecore federated authentication with Auth0 and provides some examples of the required config files; 
